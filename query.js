@@ -71,19 +71,39 @@ const queries = {
   getFixtures:
     "SELECT teams_home_id, teams_home_name, teams_home_logo, teams_home_winner, teams_away_id, teams_away_name, teams_away_logo, teams_away_winner, league_season FROM fixtures WHERE league_id = $1 AND league_season = $2",
   getPointsTable: `SELECT
-            teams_home_id AS team_id, teams_home_name AS team_name,
-            SUM(CASE WHEN teams_home_winner = true THEN 3 WHEN goals_home = goals_away THEN 1 ELSE 0 END) AS points
-          FROM fixtures
-          WHERE league_id = $1 AND league_season = $2
-          GROUP BY teams_home_id, teams_home_name
-          UNION
-          SELECT
-            teams_away_id AS team_id, teams_away_name AS team_name,
-            SUM(CASE WHEN teams_away_winner = true THEN 3 WHEN goals_home = goals_away THEN 1 ELSE 0 END) AS points
-          FROM fixtures
-          WHERE league_id = $1 AND league_season = $2
-          GROUP BY teams_away_id, teams_away_name
-          ORDER BY points DESC`,
+      team_id,
+      team_name,
+      SUM(points) AS points
+  FROM (
+      SELECT
+          teams_home_id AS team_id,
+          teams_home_name AS team_name,
+          SUM(CASE
+              WHEN teams_home_winner = true THEN 3
+              WHEN goals_home = goals_away THEN 1
+              ELSE 0
+          END) AS points
+      FROM fixtures
+      WHERE league_id = $1 AND league_season = $2
+      GROUP BY teams_home_id, teams_home_name
+
+      UNION ALL
+
+      SELECT
+          teams_away_id AS team_id,
+          teams_away_name AS team_name,
+          SUM(CASE
+              WHEN teams_away_winner = true THEN 3
+              WHEN goals_home = goals_away THEN 1
+              ELSE 0
+          END) AS points
+      FROM fixtures
+      WHERE league_id = $1 AND league_season = $2
+      GROUP BY teams_away_id, teams_away_name
+  ) AS combined_results
+  GROUP BY team_id, team_name
+  ORDER BY points DESC;
+`,
   getSeasonTopPlayerParams: `SELECT
           'top_scorer' AS param_name,
           'top_assist_maker' AS param_name,
@@ -151,15 +171,15 @@ const queries = {
 };
 
 const runQueries = async () => {
-  await executeQuery(queries.getLeagues);
-  await executeQuery(queries.getFixtures, ["140", "2021"]);
-  await executeQuery(queries.getPointsTable, ["140", "2023"]);
-  await executeQuery(queries.getSeasonTopPlayerParams);
-  await queries.getSeasonTopPlayer("135", "2023", "top_scorer");
-  await queries.getPlayerSeasonAggStats("135", "2023", "101");
-  await getTeamSeasonAggStats("61", "2022", "110");
-  await queries.getPlayerSeasonPerformance("140", "2022", "885");
-  await getTeamSeasonPerformance("140", "2023", "529");
+  // await executeQuery(queries.getLeagues);
+  // await executeQuery(queries.getFixtures, ["140", "2021"]);
+  await executeQuery(queries.getPointsTable, ["135", "2023"]);
+  // await executeQuery(queries.getSeasonTopPlayerParams);
+  // await queries.getSeasonTopPlayer("135", "2023", "top_scorer");
+  // await queries.getPlayerSeasonAggStats("135", "2023", "101");
+  // await getTeamSeasonAggStats("61", "2022", "110");
+  // await queries.getPlayerSeasonPerformance("140", "2022", "885");
+  // await getTeamSeasonPerformance("140", "2023", "529");
   await pool.end();
 };
 
