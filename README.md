@@ -72,6 +72,8 @@ Follow these steps to set up the project:
 
 ## ANSWER
 
+
+
 [
   { league_id: 140, league_name: 'La Liga', league_season: 2021 },
   { league_id: 78, league_name: 'Bundesliga', league_season: 2022 },
@@ -99,6 +101,10 @@ Follow these steps to set up the project:
   { league_id: 140, league_name: 'La Liga', league_season: 2023 },
   { league_id: 61, league_name: 'Ligue 1', league_season: 2019 }
 ]
+
+
+
+
 
 
 
@@ -1208,6 +1214,11 @@ Follow these steps to set up the project:
 
 
 
+
+
+
+
+
 [
   { team_id: 541, team_name: 'Real Madrid', points: '51' },
   { team_id: 530, team_name: 'Atletico Madrid', points: '49' },
@@ -1253,7 +1264,14 @@ Follow these steps to set up the project:
 
 
 
+
+
+
+
 [ { param_name: 'highest_shots_on_target' } ]
+
+
+
 
 
 
@@ -1272,7 +1290,14 @@ Follow these steps to set up the project:
 
 
 
+
+
+
+
 []
+
+
+
 
 
 
@@ -1291,6 +1316,9 @@ Follow these steps to set up the project:
 
 
 
+
+
+
 Performance for param: top_scorer
 []
 Performance for param: top_assist_maker
@@ -1303,6 +1331,9 @@ Performance for param: highest_blocks
 []
 Performance for param: highest_shots_on_target
 []
+
+
+
 
 
 
