@@ -99,6 +99,9 @@ Follow these steps to set up the project:
   { league_id: 140, league_name: 'La Liga', league_season: 2023 },
   { league_id: 61, league_name: 'Ligue 1', league_season: 2019 }
 ]
+
+
+
 [
   {
     teams_home_id: 542,
@@ -1202,6 +1205,9 @@ Follow these steps to set up the project:
   },
   ... 280 more items
 ]
+
+
+
 [
   { team_id: 541, team_name: 'Real Madrid', points: '51' },
   { team_id: 530, team_name: 'Atletico Madrid', points: '49' },
@@ -1243,7 +1249,14 @@ Follow these steps to set up the project:
   { team_id: 724, team_name: 'Cadiz', points: '9' },
   { team_id: 715, team_name: 'Granada CF', points: '3' }
 ]
+
+
+
+
 [ { param_name: 'highest_shots_on_target' } ]
+
+
+
 [
   { player_id: 321744, player_name: 'A. Obert', value: null },
   { player_id: 134926, player_name: 'D. Maldini', value: null },
@@ -1256,7 +1269,13 @@ Follow these steps to set up the project:
   { player_id: 30794, player_name: 'S. Perisan', value: null },
   { player_id: 56207, player_name: 'Paulo Azzi', value: null }
 ]
+
+
+
 []
+
+
+
 [
   {
     matches_played: '38',
@@ -1269,6 +1288,9 @@ Follow these steps to set up the project:
     points_total: '24'
   }
 ]
+
+
+
 Performance for param: top_scorer
 []
 Performance for param: top_assist_maker
@@ -1281,6 +1303,9 @@ Performance for param: highest_blocks
 []
 Performance for param: highest_shots_on_target
 []
+
+
+
 [
   {
     opponent_team: 'Getafe',
