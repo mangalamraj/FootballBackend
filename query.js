@@ -158,8 +158,8 @@ const runQueries = async () => {
   await queries.getSeasonTopPlayer("135", "2023", "top_scorer");
   await queries.getPlayerSeasonAggStats("135", "2023", "101");
   await getTeamSeasonAggStats("61", "2022", "110");
-  await queries.getPlayerSeasonPerformance("135", "2023", "101");
-  await getTeamSeasonPerformance("135", "2023", "120");
+  await queries.getPlayerSeasonPerformance("140", "2022", "885");
+  await getTeamSeasonPerformance("140", "2023", "529");
   await pool.end();
 };
 
