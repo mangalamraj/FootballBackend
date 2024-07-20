@@ -9,7 +9,7 @@ Follow these steps to set up the project:
 1. **Clone the repository**
 
    ```bash
-   [git clone https://github.com/mangalamraj/FootballBackend.git](https://github.com/mangalamraj/FootballBackend.git)
+   https://github.com/mangalamraj/FootballBackend.git
    ```
 
 2. **Navigate to the project directory**
